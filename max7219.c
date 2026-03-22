@@ -24,6 +24,9 @@ void max7219_init(,spi_device_handle_t spi, max7219_config *config) {
     
     // 4. Set Intensity
     max7219_write(MAX7219_REG_INTENSITY, config->INTENSITY_config,spi); 
+
+    // 5. display test config
+    max7219_write(spi, MAX7219_REG_INTENSITY, config->DISPLAY_TEST_config);
     
     // Clear the display
     for (int i = 1; i <= 8; i++) {
