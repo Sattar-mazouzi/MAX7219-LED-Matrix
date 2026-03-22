@@ -8,10 +8,6 @@ A custom component for the 8 by 8 LED matrix driven by the MAX1792x IC  for ESP3
 
 A simple professional, modular SPI driver for the **MAX7219 LED Matrix Driver**. This version uses a stateless design, allowing a single driver to manage multiple matrices by passing specific SPI handles to each function.
 
-## 🚀 Features
-* **Stateless Architecture:** No global variables; functions require an `spi_device_handle_t`.
-* **Multi-Device Support:** Easily control multiple 8x8 matrices (e.g., Left Eye, Right Eye) using the same code logic.
-* **Struct-Based Configuration:** Centralized setup for Decode Mode, Intensity, and Scan Limits.
 ---
 
 ## 📁 Component Structure
@@ -24,6 +20,19 @@ max7219/
 ```
 
 ---
+## 📑 Function Prototypes
+
+### `max7219_init`
+```c
+void max7219_init(spi_device_handle_t spi, max7219_config *config);
+```
+Initializes the MAX7219 with the provided configuration and clears the display buffer.
+
+### `max7219_write`
+```c
+void max7219_write(spi_device_handle_t spi, uint8_t reg, uint8_t data);
+```
+this function sends a raw command to a specific register.
 
 ## 🛠️ Usage Guide
 
@@ -55,23 +64,5 @@ The `max7219_write` function is the core of the driver. It sends a 16-bit packet
 max7219_write(spi_handle, MAX7219_REG_INTENSITY, 0x08);
 ```
 
----
-
-## 📑 Function Prototypes
-
-### `max7219_init`
-```c
-void max7219_init(spi_device_handle_t spi, max7219_config *config);
-```
-Initializes the MAX7219 with the provided configuration and clears the display buffer.
-
-### `max7219_write`
-```c
-void max7219_write(spi_device_handle_t spi, uint8_t reg, uint8_t data);
-```
-Sends a raw command to a specific register.
-
-
-```
 
 ---
