@@ -38,7 +38,7 @@ typedef struct
 
 
 /* Function declartion */
-void max7219_write(uint8_t reg, uint8_t data, spi_device_handle_t spi); 
-void max7219_init(max7219_config * config, spi_device_handle_t spi ); 
+void max7219_write( spi_device_handle_t spi, uint8_t reg, uint8_t data); 
+void max7219_init( spi_device_handle_t spi, max7219_config * config); 
 
 #endif
