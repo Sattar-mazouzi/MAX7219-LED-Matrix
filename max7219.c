@@ -3,7 +3,7 @@
 #include"max7219.h" 
 
 // Function to send a command to MAX7219
-void max7219_write(uint8_t reg, uint8_t data, spi_device_handle_t spi) {
+void max7219_write(, spi_device_handle_t spi, uint8_t reg, uint8_t data) {
     spi_transaction_t t;
     memset(&t, 0, sizeof(t));
     uint8_t tx_data[2] = {reg, data};
@@ -12,7 +12,7 @@ void max7219_write(uint8_t reg, uint8_t data, spi_device_handle_t spi) {
     spi_device_polling_transmit(spi, &t);
 }
 
-void max7219_init(max7219_config *config,spi_device_handle_t spi) {
+void max7219_init(,spi_device_handle_t spi, max7219_config *config) {
     // 1. Wake up the chip using the value stored in the config struct
     max7219_write(MAX7219_REG_SHUTDOWN, config->SHUTDOWN_config, spi);
     
