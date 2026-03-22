@@ -33,7 +33,7 @@ typedef struct
     uint8_t INTENSITY_config; 
     uint8_t SCAN_LIMIT_config; 
     uint8_t SHUTDOWN_config; 
-    // uint8_t DISPLAY_TEST_config; 
+    uint8_t DISPLAY_TEST_config; 
 }max7219_config;
 
 
